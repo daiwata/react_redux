@@ -29,7 +29,6 @@ export default class MainArea extends React.Component {
   }
 
   onChangeTodoInput(event) {
-    console.log("onChangeTodoInput", event.target.value);
     this.setState({todoInputValue:event.target.value});
   }
 
