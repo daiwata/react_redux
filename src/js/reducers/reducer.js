@@ -67,7 +67,9 @@ function todoReducer(state = todoInitState, action) {
     case groupActionNames.ADD_GROUP:
       _state.todoList[action.payload.groupId] =[];
       return _state;
-
+    case groupActionNames.DELETE_GROUP:
+      delete _state.todoList[action.payload.id];
+      return _state;
     default:
       return state;
   }
@@ -103,7 +105,6 @@ function groupReducer(state = groupInitState, action) {
           break;
         }
       }
-      delete _state.todoList[action.payload.id];
       return _state;
     default:
       return state;
