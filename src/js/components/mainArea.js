@@ -16,16 +16,16 @@ export default class MainArea extends React.Component {
   onClickAddButton(event) {
     if (this.state.todoInputValue !== "") {
       this.setState({todoInputValue:""})
-      this.props.onAddTodo(this.state.todoInputValue);
+      this.props.onAddTodo(this.state.todoInputValue, this.props.selectedGroup);
     }
   }
 
   onCompleteTodo(id) {
-    this.props.onCompleteTodo(id);
+    this.props.onCompleteTodo(id,this.props.selectedGroup);
   }
 
   onDeleteTodo(id) {
-    this.props.onDeleteTodo(id);
+    this.props.onDeleteTodo(id,this.props.selectedGroup);
   }
 
   onChangeTodoInput(event) {
