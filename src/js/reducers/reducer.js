@@ -64,6 +64,10 @@ function todoReducer(state = todoInitState, action) {
         }
       }
       return _state;
+    case groupActionNames.ADD_GROUP:
+      _state.todoList[action.payload.groupId] =[];
+      return _state;
+
     default:
       return state;
   }
@@ -75,13 +79,11 @@ function groupReducer(state = groupInitState, action) {
   switch (action.type) {
     case groupActionNames.ADD_GROUP:
       _state.groupCount++;
-      let groupId = "group-" + _state.groupCount;
       let groupItem = {
-        id: groupId,
+        id: action.payload.groupId,
         label: action.payload.data
       }
       _state.groupList.push(groupItem);
-      _state.todoList[groupId] = [];
       return _state;
     case groupActionNames.SELECT_GROUP:
       _state.selectedGroup = action.payload.id;
